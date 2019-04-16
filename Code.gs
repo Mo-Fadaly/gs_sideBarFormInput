@@ -17,7 +17,7 @@ function appendData(data) {
   ws.appendRow([new Date(),data.cs,"platform","",data.reason,data.username,data.message,data.link,data.icucaction]);
   
   
-  
+  //
 }
 
 
