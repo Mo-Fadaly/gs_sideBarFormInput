@@ -14,7 +14,7 @@ function appendData(data) {
 
   var ws = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Escalations");
   
-  ws.appendRow([new Date(),data.cs,"platform","",data.reason,data.username,data.message,data.link,data.icucaction]);
+  ws.appendRow([new Date(),data.cs,"",data.platform,data.reason,data.username,data.message,data.link,data.icucaction]);
   
   
   //

@@ -51,6 +51,13 @@
           <input id="link" type="text" class="validate" autocomplete="off">
           <label for="link">Link to Content</label>
         </div>
+        
+         <div class="input-field col s12">
+          <i class="material-icons prefix">business</i>
+          <input id="platform" type="text" class="validate" autocomplete="off" disabled>
+          
+        </div>
+         
         <div class="input-field col s12">
     <select id="icucaction">
       
@@ -77,12 +84,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
        <script>
        
+
+
+
+
+
+
+
+
+$('#link').change(function() {
+
+if($('#link').val().indexOf('facebook.com') >=0 ){
+    $('#platform').val('Facebook');
+    } 
+    
+    else if ($('#link').val().indexOf('twitter.com') >=0 ){
+    $('#platform').val('Twitter');
+    } 
+    
+    else if ($('#link').val().indexOf('linkedin.com') >=0 ){
+    $('#platform').val('LinkedIn');
+    } 
+    
+    else if ($('#link').val().indexOf('instagram.com') >=0 ){
+    $('#platform').val('Instagram');
+    } 
+    
+    else if ($('#link').val().indexOf('youtube.com') >=0 ){
+    $('#platform').val('Youtube');
+    } 
+    
+    else if ($('#link').val().indexOf('pinterest.com') >=0 ){
+    $('#platform').val('Pinterest');
+    } 
+    
+    else if ($('#link').val().indexOf('NA') >=0 ){
+    $('#platform').val('N/A');
+    } 
+    else {
+    $('#platform').val('');
+    }
+    
+    
+    
+    
+    
+    
+});
+//    
+//};
+       
        var csbox = document.getElementById("cs");
        var reasonbox = document.getElementById("reason");
        var usernamebox = document.getElementById("username");
        var messagebox = document.getElementById("message");
        var linkbox = document.getElementById("link");
        var icucactionbox = document.getElementById("icucaction");
+       var platformbox = document.getElementById("platform");
        
        
      
@@ -93,10 +151,12 @@
        function addRecord (){
         var data = {
            cs: csbox.value,
+           platform: platformbox.value,
            reason: reasonbox.value,
            username: usernamebox.value,
            message: messagebox.value,
            link: linkbox.value,
+           
            icucaction: icucactionbox.value
         };
         
@@ -106,6 +166,7 @@
   usernamebox.value = "";
   messagebox.value = "";
   linkbox.value = "";
+  platformbox.value = "";
   
   document.getElementById("reason").focus();
        
