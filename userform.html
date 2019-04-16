@@ -1,0 +1,126 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+    <div class="container">
+    
+      <div class="row">
+      
+      
+     
+      
+      
+      <div class="input-field col s12">
+    <select id="cs">
+      <option value="" disabled selected>Content Specialist</option>
+      <option value="Petya">Petya</option>
+      <option value="Jose">Jose</option>
+      <option value="Armila">Armila</option>
+    </select>
+    
+  </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">priority_high</i>
+          <input id="reason" type="text" class="validate" autocomplete="off">
+          <label for="reason">Reason</label>
+        </div>
+        
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="username" type="text" class="validate" autocomplete="off">
+          <label for="username">Username</label>
+        </div>
+        
+         <div class="input-field col s12">
+          <i class="material-icons prefix">message</i>
+          <input id="message" type="text" class="validate" autocomplete="off">
+          <label for="message">Content</label>
+        </div>
+        
+         <div class="input-field col s12">
+          <i class="material-icons prefix">insert_link</i>
+          <input id="link" type="text" class="validate" autocomplete="off">
+          <label for="link">Link to Content</label>
+        </div>
+        <div class="input-field col s12">
+    <select id="icucaction">
+      
+      <option value="ICUC took no action" selected>ICUC took no action</option>
+      <option value="ICUC hid comment">ICUC hid comment</option>
+     
+    </select>
+    
+  </div>
+        
+        <div class="input-field col s12">
+          <button class="btn waves-effect waves-light btn-large" id="btn" style="width:100%">Track
+    <i class="material-icons right">done_all</i>
+  </button>
+        </div>
+      </div>  <!-- END ROW -->
+    
+    
+    
+    </div>
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+       <script>
+       
+       var csbox = document.getElementById("cs");
+       var reasonbox = document.getElementById("reason");
+       var usernamebox = document.getElementById("username");
+       var messagebox = document.getElementById("message");
+       var linkbox = document.getElementById("link");
+       var icucactionbox = document.getElementById("icucaction");
+       
+       
+     
+       
+       
+       document.getElementById("btn").addEventListener("click", addRecord);
+       
+       function addRecord (){
+        var data = {
+           cs: csbox.value,
+           reason: reasonbox.value,
+           username: usernamebox.value,
+           message: messagebox.value,
+           link: linkbox.value,
+           icucaction: icucactionbox.value
+        };
+        
+        google.script.run.appendData(data);
+        
+        reasonbox.value = "";
+  usernamebox.value = "";
+  messagebox.value = "";
+  linkbox.value = "";
+  
+  document.getElementById("reason").focus();
+       
+       }
+       
+       
+       $(document).ready(function(){
+    $('select').formSelect();
+  });
+  
+  
+
+
+
+       
+       </script>
+    </body>
+  </html>
